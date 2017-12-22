@@ -103,7 +103,8 @@ export class Pia extends ApplicationDb {
         }
         fetch(this.getServerUrl(), {
           method: 'POST',
-          body: formData
+          body: formData,
+          credentials: 'include'
         }).then((response) => {
           return response.json();
         }).then((result: any) => {
@@ -147,7 +148,8 @@ export class Pia extends ApplicationDb {
           }
           fetch(this.getServerUrl() + '/' + entry.id, {
             method: 'PATCH',
-            body: formData
+            body: formData,
+            credentials: 'include'
           }).then((response) => {
             return response.json();
           }).then((result: any) => {

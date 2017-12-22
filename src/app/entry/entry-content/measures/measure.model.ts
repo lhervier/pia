@@ -27,7 +27,8 @@ export class Measure extends ApplicationDb {
         }
         fetch(this.getServerUrl(), {
           method: 'POST',
-          body: formData
+          body: formData,
+          credentials: 'include'
         }).then((response) => {
           return response.json();
         }).then((result: any) => {
@@ -58,7 +59,8 @@ export class Measure extends ApplicationDb {
           }
           fetch(this.getServerUrl() + '/' + this.id, {
             method: 'PATCH',
-            body: formData
+            body: formData,
+            credentials: 'include'
           }).then((response) => {
             return response.json();
           }).then((result: any) => {
@@ -96,7 +98,7 @@ export class Measure extends ApplicationDb {
     const items = [];
     return new Promise((resolve, reject) => {
       if (this.serverUrl) {
-        fetch(this.getServerUrl()).then((response) => {
+        fetch(this.getServerUrl(), {credentials: 'include'}).then((response) => {
           return response.json();
         }).then((result: any) => {
           resolve(result);
